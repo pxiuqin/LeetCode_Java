@@ -1,0 +1,6 @@
+.idea
+.vscode
+.metals
+data/
+target/
+*.iml
