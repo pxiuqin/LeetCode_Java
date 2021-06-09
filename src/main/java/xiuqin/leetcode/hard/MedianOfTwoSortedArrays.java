@@ -52,8 +52,7 @@ import java.util.List;
  * 3. 如果 A[k/2−1]=B[k/2−1]，则可以归入第一种情况处理
  * Cite:doc/img/Median Of Two Sorted Arrays.png
  * <p>
- * Cite:Hao Chen
- *
+ * 举例说明:
  * A: 1 3 4 9
  * B: 1 2 3 4 5 6 7 8 9
  * 1. 两个有序数组的长度分别是 4 和 9，长度之和是 13，中位数是两个有序数组中的第 7 个元素，因此需要找到第k=7 个元素。比较两个有序数组中下标为 k/2−1=2 的数，即 A[2] 和 B[2]，如下面所示：
@@ -79,120 +78,188 @@ import java.util.List;
  */
 public class MedianOfTwoSortedArrays {
 
-  public double findMedianSortedArrays(List<Integer> A, List<Integer> B) {
-    //checking the edge cases
-    if (A.isEmpty() && B.isEmpty()) {
-      return 0.0;
-    }
-
-    int m = A.size();
-    int n = B.size();
-
-    //if the length of array is odd, return the middle one
-    //if the length of array is even, return the average of the middle two numbers
-    if (A.isEmpty()) {
-      return n % 2 == 1 ? B.get(n / 2) : (B.get(n / 2 - 1) + B.get(n / 2)) / 2.0;
-    }
-    if (B.isEmpty()) {
-      return m % 2 == 1 ? A.get(n / 2) : (A.get(n / 2 - 1) + B.get(n / 2)) / 2.0;
-    }
-
-    //let the longer array be A, and the shoter array be B
-    if (m > n) {
-      return findMedianSortedArrayHelper(A, B, 0, m - 1, 0, n - 1);
-    } else {
-      return findMedianSortedArrayHelper(B, A, 0, n - 1, 0, m - 1);
-    }
-  }
-
-  private double findMedianSortedArrayHelper(List<Integer> A, List<Integer> B, int lowA, int highA, int lowB, int highB) {
-    int m = A.size();
-    int n = B.size();
-
-    // Take the A[middle], search its position in B array
-    int mid = lowA + (highA - lowA) / 2;
-    int pos = binarySearch(B, lowB, highB, A.get(mid));
-    int num = mid + pos;
-
-    // If the A[middle] in B is B's middle place, then we can have the result
-    if (num == (m + n) / 2) {
-      // If two arrays total length is odd, just simply return the A[mid]
-      // Why not return the B[pos] instead ?
-      //   suppose A={ 1,3,5 } B={ 2,4 }, then mid=1, pos=1
-      //   suppose A={ 3,5 }   B={1,2,4}, then mid=0, pos=2
-      //   suppose A={ 1,3,4,5 }   B={2}, then mid=1, pos=1
-      // You can see, the `pos` is the place A[mid] can be inserted, so return A[mid]
-      if ((m + n) % 2 == 1) {
-        return A.get(mid);
+  /**
+   * Cite:https://blog.csdn.net/en_joker/article/details/107179641
+   */
+  static class Solution1 {
+    public double findMedianSortedArrays(List<Integer> nums1, List<Integer> nums2) {
+      int length1 = nums1.size(), length2 = nums2.size();
+      int totalLength = length1 + length2;
+      if (totalLength % 2 == 1) {
+        int midIndex = totalLength / 2;
+        double median = getKthElement(nums1, nums2, midIndex + 1);
+        return median;
       } else {
+        int midIndex1 = totalLength / 2 - 1, midIndex2 = totalLength / 2;
+        double median = (getKthElement(nums1, nums2, midIndex1 + 1) + getKthElement(nums1, nums2, midIndex2 + 1)) / 2.0;
+        return median;
+      }
+    }
 
-        // If tow arrays total length is even, then we have to find the next one.
-        int next = 0;
+    public int getKthElement(List<Integer> nums1, List<Integer> nums2, int k) {
+      /* 主要思路：要找到第 k (k>1) 小的元素，那么就取 pivot1 = nums1[k/2-1] 和 pivot2 = nums2[k/2-1] 进行比较
+       * 这里的 "/" 表示整除
+       * nums1 中小于等于 pivot1 的元素有 nums1[0 .. k/2-2] 共计 k/2-1 个
+       * nums2 中小于等于 pivot2 的元素有 nums2[0 .. k/2-2] 共计 k/2-1 个
+       * 取 pivot = min(pivot1, pivot2)，两个数组中小于等于 pivot 的元素共计不会超过 (k/2-1) + (k/2-1) <= k-2 个
+       * 这样 pivot 本身最大也只能是第 k-1 小的元素
+       * 如果 pivot = pivot1，那么 nums1[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部 "删除"，剩下的作为新的 nums1 数组
+       * 如果 pivot = pivot2，那么 nums2[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部 "删除"，剩下的作为新的 nums2 数组
+       * 由于我们 "删除" 了一些元素（这些元素都比第 k 小的元素要小），因此需要修改 k 的值，减去删除的数的个数
+       */
 
-        // If both `mid` and `pos` are not the first postion.
-        // Then, find max(A[mid-1], B[pos-1]).
-        // Because the `mid` is the second middle number, we need to find the first middle number
-        // Be careful about the edge case
-        if (mid > 0 && pos > 0) {
-          next = A.get(mid - 1) > B.get(pos - 1) ? A.get(mid - 1) : B.get(pos - 1);
-        } else if (pos > 0) {
-          next = B.get(pos - 1);
-        } else if (mid > 0) {
-          next = A.get(mid - 1);
+      int length1 = nums1.size(), length2 = nums2.size();
+      int index1 = 0, index2 = 0;
+      int kthElement = 0;
+
+      while (true) {
+        // 边界情况
+        if (index1 == length1) {
+          return nums2.get(index2 + k - 1);
+        }
+        if (index2 == length2) {
+          return nums1.get(index1 + k - 1);
+        }
+        if (k == 1) {
+          return Math.min(nums1.get(index1), nums2.get(index2));
         }
 
-        return (A.get(mid) + next) / 2.0;
+        // 正常情况
+        int half = k / 2;
+        int newIndex1 = Math.min(index1 + half, length1) - 1;
+        int newIndex2 = Math.min(index2 + half, length2) - 1;
+        int pivot1 = nums1.get(newIndex1), pivot2 = nums2.get(newIndex2);
+        if (pivot1 <= pivot2) {
+          k -= (newIndex1 - index1 + 1);
+          index1 = newIndex1 + 1;
+        } else {
+          k -= (newIndex2 - index2 + 1);
+          index2 = newIndex2 + 1;
+        }
       }
-    } else if (num < (m + n) / 2) {
-      // if A[mid] is in the left middle place of the whole two arrays
-      //
-      //         A(len=16)        B(len=10)
-      //     [................] [...........]
-      //            ^             ^
-      //           mid=7         pos=1
-      //
-      //  move the `low` pointer to the "middle" position, do next iteration.
-      lowA = mid + 1;
-      lowB = pos;
-      if (highA - lowA > highB - lowB) {
-        return findMedianSortedArrayHelper(A, B, lowA, highA, lowB, highB);
-      }
-
-      return findMedianSortedArrayHelper(B, A, lowB, highB, lowA, highA);
-    } else {
-      // if A[mid] is in the right middle place of the whole two arrays
-      // if (num > (m + n) / 2) {}
-      highA = mid - 1;
-      highB = pos - 1;
-      if (highA - lowA > highB - lowB) {
-        return findMedianSortedArrayHelper(A, B, lowA, highA, lowB, highB);
-      }
-
-      return findMedianSortedArrayHelper(B, A, lowB, highB, lowA, highA);
     }
+
   }
 
-  // Classical binary search algorithm, but slightly different
-  // if cannot find the key, return the position where can insert the key
-  private int binarySearch(List<Integer> A, int low, int high, int key) {
-    while (low <= high) {
-      int mid = low + (high - low) / 2;
-      if (key == A.get(mid)) {
-        return mid;
+  /**
+   *  * Cite:Hao Chen
+   */
+  static class Solution2{
+    public double findMedianSortedArrays(List<Integer> A, List<Integer> B) {
+      //checking the edge cases
+      if (A.isEmpty() && B.isEmpty()) {
+        return 0.0;
       }
 
-      if (key > A.get(mid)) {
-        low = mid + 1;
+      int m = A.size();
+      int n = B.size();
+
+      //if the length of array is odd, return the middle one
+      //if the length of array is even, return the average of the middle two numbers
+      if (A.isEmpty()) {
+        return n % 2 == 1 ? B.get(n / 2) : (B.get(n / 2 - 1) + B.get(n / 2)) / 2.0;
+      }
+      if (B.isEmpty()) {
+        return m % 2 == 1 ? A.get(n / 2) : (A.get(n / 2 - 1) + B.get(n / 2)) / 2.0;
+      }
+
+      //let the longer array be A, and the shoter array be B
+      if (m > n) {
+        return findMedianSortedArrayHelper(A, B, 0, m - 1, 0, n - 1);
       } else {
-        high = mid - 1;
+        return findMedianSortedArrayHelper(B, A, 0, n - 1, 0, m - 1);
       }
     }
 
-    return low;
+    private double findMedianSortedArrayHelper(List<Integer> A, List<Integer> B, int lowA, int highA, int lowB, int highB) {
+      int m = A.size();
+      int n = B.size();
+
+      // Take the A[middle], search its position in B array
+      int mid = lowA + (highA - lowA) / 2;
+      int pos = binarySearch(B, lowB, highB, A.get(mid));
+      int num = mid + pos;
+
+      // If the A[middle] in B is B's middle place, then we can have the result
+      if (num == (m + n) / 2) {
+        // If two arrays total length is odd, just simply return the A[mid]
+        // Why not return the B[pos] instead ?
+        //   suppose A={ 1,3,5 } B={ 2,4 }, then mid=1, pos=1
+        //   suppose A={ 3,5 }   B={1,2,4}, then mid=0, pos=2
+        //   suppose A={ 1,3,4,5 }   B={2}, then mid=1, pos=1
+        // You can see, the `pos` is the place A[mid] can be inserted, so return A[mid]
+        if ((m + n) % 2 == 1) {
+          return A.get(mid);
+        } else {
+
+          // If tow arrays total length is even, then we have to find the next one.
+          int next = 0;
+
+          // If both `mid` and `pos` are not the first postion.
+          // Then, find max(A[mid-1], B[pos-1]).
+          // Because the `mid` is the second middle number, we need to find the first middle number
+          // Be careful about the edge case
+          if (mid > 0 && pos > 0) {
+            next = A.get(mid - 1) > B.get(pos - 1) ? A.get(mid - 1) : B.get(pos - 1);
+          } else if (pos > 0) {
+            next = B.get(pos - 1);
+          } else if (mid > 0) {
+            next = A.get(mid - 1);
+          }
+
+          return (A.get(mid) + next) / 2.0;
+        }
+      } else if (num < (m + n) / 2) {
+        // if A[mid] is in the left middle place of the whole two arrays
+        //
+        //         A(len=16)        B(len=10)
+        //     [................] [...........]
+        //            ^             ^
+        //           mid=7         pos=1
+        //
+        //  move the `low` pointer to the "middle" position, do next iteration.
+        lowA = mid + 1;
+        lowB = pos;
+        if (highA - lowA > highB - lowB) {
+          return findMedianSortedArrayHelper(A, B, lowA, highA, lowB, highB);
+        }
+
+        return findMedianSortedArrayHelper(B, A, lowB, highB, lowA, highA);
+      } else {
+        // if A[mid] is in the right middle place of the whole two arrays
+        // if (num > (m + n) / 2) {}
+        highA = mid - 1;
+        highB = pos - 1;
+        if (highA - lowA > highB - lowB) {
+          return findMedianSortedArrayHelper(A, B, lowA, highA, lowB, highB);
+        }
+
+        return findMedianSortedArrayHelper(B, A, lowB, highB, lowA, highA);
+      }
+    }
+
+    // Classical binary search algorithm, but slightly different
+    // if cannot find the key, return the position where can insert the key
+    private int binarySearch(List<Integer> A, int low, int high, int key) {
+      while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (key == A.get(mid)) {
+          return mid;
+        }
+
+        if (key > A.get(mid)) {
+          low = mid + 1;
+        } else {
+          high = mid - 1;
+        }
+      }
+
+      return low;
+    }
   }
 
   public static void main(String[] args) {
-    MedianOfTwoSortedArrays obj = new MedianOfTwoSortedArrays();
+    Solution1 obj = new Solution1();
     List<Integer> nums1 = Arrays.asList(3);
     List<Integer> nums2 = Arrays.asList(2);
 
