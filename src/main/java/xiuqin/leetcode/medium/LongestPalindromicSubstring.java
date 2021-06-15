@@ -1,7 +1,5 @@
 package xiuqin.leetcode.medium;
 
-import jdk.internal.util.xml.impl.Pair;
-
 /**
  * https://oj.leetcode.com/problems/longest-palindromic-substring/
  * 5. 最长回文子串
