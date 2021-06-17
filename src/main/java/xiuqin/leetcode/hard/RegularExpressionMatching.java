@@ -58,15 +58,39 @@ public class RegularExpressionMatching {
         }
     }
 
-    public boolean isMatch_1(String s, String p) {
+    public boolean isMatch_Sample(String s, String p) {
         if (p.isEmpty()) {
             return s.isEmpty();
         }
         if (p.length() > 1 && p.charAt(1) == '*') {
-            return isMatch(s, p.substring(2)) || (!s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.') && isMatch(s.substring(1), p));
+            return isMatch_Sample(s, p.substring(2)) || (!s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.') && isMatch_Sample(s.substring(1), p));
         } else {
-            return !s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.') && isMatch(s.substring(1), p.substring(1));
+            return !s.isEmpty() && (s.charAt(0) == p.charAt(0) || p.charAt(0) == '.') && isMatch_Sample(s.substring(1), p.substring(1));
         }
+    }
+
+    /**
+     * 我们也可以用 DP 来解，定义一个二维的 DP 数组，其中 dp[i][j] 表示 s[0,i) 和 p[0,j) 是否 match，然后有下面三种情况
+     * (下面部分摘自这个帖子)：https://discuss.leetcode.com/topic/17852/9-lines-16ms-c-dp-solutions-with-explanations
+     * <p>
+     * 1.  P[i][j] = P[i - 1][j - 1], if p[j - 1] != '*' && (s[i - 1] == p[j - 1] || p[j - 1] == '.');
+     * 2.  P[i][j] = P[i][j - 2], if p[j - 1] == '*' and the pattern repeats for 0 times;
+     * 3.  P[i][j] = P[i - 1][j] && (s[i - 1] == p[j - 2] || p[j - 2] == '.'), if p[j - 1] == '*' and the pattern repeats for at least 1 times.
+     */
+    public boolean isMatch_DP(String s, String p) {
+        int m = s.length(), n = p.length();
+        boolean[][] dp = new boolean[m+1][n+1];
+        dp[0][0] = true;
+        for (int i = 0; i <= m; ++i) {
+            for (int j = 1; j <= n; ++j) {
+                if (j > 1 && p.charAt(j - 1) == '*') {
+                    dp[i][j] = dp[i][j - 2] || (i > 0 && (s.charAt(i - 1) == p.charAt(j - 2) || p.charAt(j - 2) == '.') && dp[i - 1][j]);
+                } else {
+                    dp[i][j] = i > 0 && dp[i - 1][j - 1] && (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.');
+                }
+            }
+        }
+        return dp[m][n];
     }
 
     public static void main(String[] args) {
@@ -91,5 +115,7 @@ public class RegularExpressionMatching {
         System.out.println("acb,ca*b->" + obj.isMatch("acb", "ca*b"));
         System.out.println("acb,c*a*cb->" + obj.isMatch("acb", "c*a*cb"));
         System.out.println("aab,c.a.b->" + obj.isMatch("aab", "c.a.b"));
+        System.out.println("acb,c*a*cb->" + obj.isMatch_DP("acb", "c*a*cb"));
+        System.out.println("aab,c.a.b->" + obj.isMatch_DP("aab", "c.a.b"));
     }
 }
