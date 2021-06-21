@@ -1,5 +1,5 @@
-### LeetJavaode_Java
-实现Java版LeetJavaode
+### LeetCode_Java
+实现Java版LeetCode
 
 * 1.[Two Sum](https://leetcode.com/problems/two-sum/): easy/TwoSum.java(Easy)
 * 2.[Add Two Numbers](https://leetcode.com/problems/add-two-numbers/): medium/addTwoNumbers.java(Medium)
