@@ -16,3 +16,5 @@
 * 13.[Roman to Integer](https://leetcode.com/problems/roman-to-integer/): easy/RomanToInteger.java(Easy)
 * 14.[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/): easy/LongestCommonPrefix.java(Easy)
 * 15.[3Sum](https://oj.leetcode.com/problems/3sum/): medium/threeSum.java(Medium)
+* 16.[3Sum Closest](https://leetcode.com/problems/3sum-closest/): medium/ThreeSumClosest.java(Medium)
+* 17.[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/): medium/LetterCombinationsOfAPhoneNumber.java(Medium)
