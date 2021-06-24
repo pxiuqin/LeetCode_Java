@@ -18,3 +18,4 @@
 * 15.[3Sum](https://oj.leetcode.com/problems/3sum/): medium/threeSum.java(Medium)
 * 16.[3Sum Closest](https://leetcode.com/problems/3sum-closest/): medium/ThreeSumClosest.java(Medium)
 * 17.[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/): medium/LetterCombinationsOfAPhoneNumber.java(Medium)
+* 18.[4Sum](https://leetcode.com/problems/4sum/): medium/FourSum.java(Medium)
