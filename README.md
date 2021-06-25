@@ -19,3 +19,6 @@
 * 16.[3Sum Closest](https://leetcode.com/problems/3sum-closest/): medium/ThreeSumClosest.java(Medium)
 * 17.[Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/): medium/LetterCombinationsOfAPhoneNumber.java(Medium)
 * 18.[4Sum](https://leetcode.com/problems/4sum/): medium/FourSum.java(Medium)
+* 19.[Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/): easy/RemoveNthNodeFromEndOfList.java(Easy)
+* 20.[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/): easy/ValidParentheses.java(Easy)
+* 21.[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/): easy/MergeTwoSortedLists.java(Easy)
