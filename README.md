@@ -23,3 +23,4 @@
 * 20.[Valid Parentheses](https://leetcode.com/problems/valid-parentheses/): easy/ValidParentheses.java(Easy)
 * 21.[Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/): easy/MergeTwoSortedLists.java(Easy)
 * 22.[Generate Parentheses](https://leetcode.com/problems/generate-parentheses/): medium/GenerateParentheses.java(Medium)
+* 23.[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/): hard/MergeKSortedLists.java(Hard)
