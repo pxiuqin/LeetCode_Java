@@ -146,7 +146,7 @@ public class MergeKSortedLists {
         test.add(b3);
 
         ListNode result = obj.mergeKLists2(test);
-        while (result.next != null) {
+        while (result != null) {
             System.out.println(result.val);
             result = result.next;
         }
