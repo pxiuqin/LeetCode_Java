@@ -26,3 +26,4 @@
 * 23.[Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/): hard/MergeKSortedLists.java(Hard)
 * 24.[Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/): medium/SwapNodesInPairs.java(Medium)
 * 25.[Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/): hard/ReverseNodesInKGroup.java(Hard)
+* 26.[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/): easy/RemoveDuplicatesFromSortedArray.java(Easy)
