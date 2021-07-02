@@ -47,6 +47,7 @@ public class RemoveDuplicatesFromSortedArray {
                 len++;
             }
         }
+
         return len + 1;
     }
 
