@@ -27,4 +27,5 @@
 * 24.[Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/): medium/SwapNodesInPairs.java(Medium)
 * 25.[Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/): hard/ReverseNodesInKGroup.java(Hard)
 * 26.[Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/): easy/RemoveDuplicatesFromSortedArray.java(Easy)
-* 27.[Remove Element](): easy/RemoveElement.java(Eash)
+* 27.[Remove Element](https://leetcode.com/problems/remove-element/): easy/RemoveElement.java(Eash)
+* 28.[Implement strStr()](https://leetcode.com/problems/implement-strstr/): easy/ImplementStrStr(Easy)
