@@ -31,3 +31,4 @@
 * 28.[Implement strStr()](https://leetcode.com/problems/implement-strstr/): easy/ImplementStrStr.java(Easy)
 * 29.[Divide Two Integers](https://leetcode.com/problems/divide-two-integers/): medium/DivideTwoIntegers.java(Medium)
 * 30.[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/): hard/SubstringWithConcatenationOfAllWords.java(Hard)
+* 31.[Next Permutation](https://leetcode.com/problems/next-permutation/): medium/NextPermutation.java(Medium)
