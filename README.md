@@ -32,3 +32,4 @@
 * 29.[Divide Two Integers](https://leetcode.com/problems/divide-two-integers/): medium/DivideTwoIntegers.java(Medium)
 * 30.[Substring with Concatenation of All Words](https://leetcode.com/problems/substring-with-concatenation-of-all-words/): hard/SubstringWithConcatenationOfAllWords.java(Hard)
 * 31.[Next Permutation](https://leetcode.com/problems/next-permutation/): medium/NextPermutation.java(Medium)
+* 32.[Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/): hard/Longest Valid Parentheses.java(Hard)
