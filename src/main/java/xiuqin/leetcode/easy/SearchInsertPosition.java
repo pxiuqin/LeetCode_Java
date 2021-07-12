@@ -35,7 +35,7 @@ public class SearchInsertPosition {
   }
 
   // Find the first position >= target
-  private int searchInsert2(int[] nums, int target) {
+  public int searchInsert2(int[] nums, int target) {
     if (nums == null || nums.length == 0) {
       return 0;
     }
@@ -65,7 +65,7 @@ public class SearchInsertPosition {
 
   // Find the last position < target, return + 1
   // 1,2,3,5,6
-  private int searchInsert3(int[] nums, int target) {
+  public int searchInsert3(int[] nums, int target) {
     if (nums == null || nums.length == 0) {
       return 0;
     }

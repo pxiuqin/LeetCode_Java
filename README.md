@@ -36,3 +36,4 @@
 * 33.[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/): medium/SearchInRotatedSortedArray.java(Medium)
 * 34.[Search for a Range](https://leetcode.com/problems/search-for-a-range/): medium/SearchForARange.java(Medium)
 * 35.[Search Insert Position](https://oj.leetcode.com/problems/search-insert-position/): easy/SearchInsertPosition.java(Easy)
+* 36.[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/): easy/ValidSudoku.java(Easy)
