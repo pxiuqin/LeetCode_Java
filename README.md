@@ -35,3 +35,4 @@
 * 32.[Longest Valid Parentheses](https://leetcode.com/problems/longest-valid-parentheses/): hard/Longest Valid Parentheses.java(Hard)
 * 33.[Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/): medium/SearchInRotatedSortedArray.java(Medium)
 * 34.[Search for a Range](https://leetcode.com/problems/search-for-a-range/): medium/SearchForARange.java(Medium)
+* 35.[Search Insert Position](https://oj.leetcode.com/problems/search-insert-position/): easy/SearchInsertPosition.java(Easy)
