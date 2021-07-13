@@ -37,3 +37,4 @@
 * 34.[Search for a Range](https://leetcode.com/problems/search-for-a-range/): medium/SearchForARange.java(Medium)
 * 35.[Search Insert Position](https://oj.leetcode.com/problems/search-insert-position/): easy/SearchInsertPosition.java(Easy)
 * 36.[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/): easy/ValidSudoku.java(Easy)
+* 37.[Sudoku Solver](https://leetcode.com/problems/sudoku-solver/): hard/SudokuSolver.java(Hard)
