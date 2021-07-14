@@ -38,3 +38,4 @@
 * 35.[Search Insert Position](https://oj.leetcode.com/problems/search-insert-position/): easy/SearchInsertPosition.java(Easy)
 * 36.[Valid Sudoku](https://leetcode.com/problems/valid-sudoku/): easy/ValidSudoku.java(Easy)
 * 37.[Sudoku Solver](https://leetcode.com/problems/sudoku-solver/): hard/SudokuSolver.java(Hard)
+* 38.[Count and Say](https://leetcode.com/problems/count-and-say/) medium/CountAndSay.java(Medium)
