@@ -40,3 +40,4 @@
 * 37.[Sudoku Solver](https://leetcode.com/problems/sudoku-solver/): hard/SudokuSolver.java(Hard)
 * 38.[Count and Say](https://leetcode.com/problems/count-and-say/): medium/CountAndSay.java(Medium)
 * 39.[Combination Sum](https://leetcode.com/problems/combination-sum/): medium/CombinationSum.java(Medium)
+* 40.[Combination Sum II](https://leetcode.com/problems/combination-sum-ii/): medium/CombinationSumII.java(Medium)
