@@ -41,3 +41,4 @@
 * 38.[Count and Say](https://leetcode.com/problems/count-and-say/): medium/CountAndSay.java(Medium)
 * 39.[Combination Sum](https://leetcode.com/problems/combination-sum/): medium/CombinationSum.java(Medium)
 * 40.[Combination Sum II](https://leetcode.com/problems/combination-sum-ii/): medium/CombinationSumII.java(Medium)
+* 41.[First Missing Positive](https://leetcode.com/problems/first-missing-positive/): hard/FirstMissingPositive.java(Hard)
