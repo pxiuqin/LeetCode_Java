@@ -18,7 +18,7 @@ public class FirstMissingPositive {
   /*
    *  Idea:
    *
-   *    We can move the num to the place whcih the index is the num.
+   *    We can move the num to the place which the index is the num.
    *
    *    for example,  (considering the array is zero-based.
    *       1 => A[0], 2 => A[1], 3=>A[2]
