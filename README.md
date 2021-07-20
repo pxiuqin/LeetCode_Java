@@ -43,4 +43,5 @@
 * 40.[Combination Sum II](https://leetcode.com/problems/combination-sum-ii/): medium/CombinationSumII.java(Medium)
 * 41.[First Missing Positive](https://leetcode.com/problems/first-missing-positive/): hard/FirstMissingPositive.java(Hard)
 * 42.[Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/): hard/TrappingRainWater.java(Hard)
+* 43.[Multiply Strings](https://leetcode.com/problems/multiply-strings/): medium/MultiplyStrings.java(Medium)
 
