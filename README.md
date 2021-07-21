@@ -46,4 +46,5 @@
 * 43.[Multiply Strings](https://leetcode.com/problems/multiply-strings/): medium/MultiplyStrings.java(Medium)
 * 44.[Wildcard Matching](https://leetcode.com/problems/wildcard-matching/): hard/WildcardMatching.java(Hard)
 * 45.[Jump Game II](https://leetcode.com/problems/jump-game-ii/): hard/JumpGameII.java(Hard)
+* 46.[Permutations](https://leetcode.com/problems/permutations/): medium/Permutations.java(Medium)
 
