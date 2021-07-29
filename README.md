@@ -50,4 +50,5 @@
 * 47.[Permutations II](https://leetcode.com/problems/permutations-ii/): medium/PermutationsII.java(Medium)
 * 48.[Rotate Image](https://leetcode.com/problems/rotate-image/): medium/RotateImage.java(Medium)
 * 49.[Group Anagrams](https://leetcode.com/problems/anagrams/): medium/GroupAnagrams.java(Medium)
+* 50.[Pow(x, n)](https://leetcode.com/problems/powx-n/): medium/Pow.java(Medium)
 
