@@ -53,4 +53,5 @@
 * 50.[Pow(x, n)](https://leetcode.com/problems/powx-n/): medium/Pow.java(Medium)
 * 51.[N-Queens](https://leetcode.com/problems/n-queens/): hard/NQueens.java(Hard)
 * 52.[N-Queens II](https://leetcode.com/problems/n-queens-ii/): hard/NQueensII.java(Hard)
+* 53.[Maximum Subarray](): medium/MaximumSubarray.java(Medium)
 
