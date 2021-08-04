@@ -55,4 +55,5 @@
 * 52.[N-Queens II](https://leetcode.com/problems/n-queens-ii/): hard/NQueensII.java(Hard)
 * 53.[Maximum Subarray](https://leetcode.com/problems/maximum-subarray/): medium/MaximumSubarray.java(Medium)
 * 54.[Spiral Matrix](https://leetcode.com/problems/spiral-matrix/): medium/SpiralMatrix.java(Medium)
+* 55.[Jump Game](): medium/JumpGame.java(Medium)
 
