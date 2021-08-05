@@ -1,4 +1,4 @@
-package xiuqin.leetcode.hard;
+package xiuqin.leetcode.medium;
 
 import java.util.*;
 
