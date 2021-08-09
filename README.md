@@ -58,6 +58,7 @@
 * 55.[Jump Game](https://leetcode.com/problems/jump-game/): medium/JumpGame.java(Medium)
 * 56.[Merge Intervals](https://leetcode.com/problems/merge-intervals/): median/MergeIntervals.java(Median)
 * 57.[Insert Interval](https://leetcode.com/problems/insert-interval/): median/InsertInterval.java(Median)
-* 57.[Length of Last Word](https://leetcode.com/problems/length-of-last-word/): easy/LengthOfLastWord.java(Easy)
-* 58.[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/): median/SpiralMatrixII.java(Median)
+* 58.[Length of Last Word](https://leetcode.com/problems/length-of-last-word/): easy/LengthOfLastWord.java(Easy)
+* 59.[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/): median/SpiralMatrixII.java(Median)
+* 60.[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/): hard/PermutationSequence.java(Hard)
 
