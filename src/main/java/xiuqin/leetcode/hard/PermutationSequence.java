@@ -85,7 +85,7 @@ public class PermutationSequence {
       n--;
 
       //the next k also can be caculated like this:
-      //    k = (k-1)%group + 1;
+      //k = (k-1)%group + 1;
       k -= group * idx;
     }
 
@@ -203,10 +203,14 @@ public class PermutationSequence {
   }
 
   private void reverse(List<Integer> num, int start, int end) {
+    if (start >= end) {
+      return;
+    }
+
     int index = 0;
-    for (int i = start; i < (start + end) / 2; i++) {
-      int temp = num.get(start);
-      num.set(i, num.get(end));
+    for (int i = start; i <= (start + end) / 2; i++) {
+      int temp = num.get(i);
+      num.set(i, num.get(end - index));
       num.set(end - index, temp);
       index++;
     }
