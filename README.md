@@ -62,4 +62,5 @@
 * 59.[Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/): median/SpiralMatrixII.java(Median)
 * 60.[Permutation Sequence](https://leetcode.com/problems/permutation-sequence/): hard/PermutationSequence.java(Hard)
 * 61.[Rotate List](https://leetcode.com/problems/rotate-list/): median/RotateList.java(Median)
+* 62.[Unique Paths](https://leetcode.com/problems/unique-paths/): median/UniquePaths.java(Median)
 
