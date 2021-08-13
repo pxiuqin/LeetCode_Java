@@ -67,4 +67,5 @@
 * 64.[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/): median/MinimumPathSum.java(Median)
 * 65.[Valid Number](https://leetcode.com/problems/valid-number/): hard/ValidNumber.java(Hard)
 * 66.[Plus One](https://leetcode.com/problems/plus-one/): easy/PlusOne.java(Easy)
+* 67.[Add Binary](https://leetcode.com/problems/add-binary/): easy/AddBinary.java(Easy)
 
