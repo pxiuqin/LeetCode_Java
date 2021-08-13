@@ -65,5 +65,6 @@
 * 62.[Unique Paths](https://leetcode.com/problems/unique-paths/): median/UniquePaths.java(Median)
 * 63.[Unique Paths II](https://leetcode.com/problems/unique-paths-ii/): median/UniquePathsII.java(Median)
 * 64.[Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/): median/MinimumPathSum.java(Median)
-* 65.[Valid Number](https://leetcode.com/problems/valid-number/): easy/ValidNumber.java(Easy)
+* 65.[Valid Number](https://leetcode.com/problems/valid-number/): hard/ValidNumber.java(Hard)
+* 66.[Plus One](https://leetcode.com/problems/plus-one/): easy/PlusOne.java(Easy)
 
