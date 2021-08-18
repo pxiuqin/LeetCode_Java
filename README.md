@@ -70,4 +70,5 @@
 * 67.[Add Binary](https://leetcode.com/problems/add-binary/): easy/AddBinary.java(Easy)
 * 68.[Text Justification](https://leetcode.com/problems/text-justification/): hard/TextJustification.java(Hard)
 * 69.[Sqrt(x)](https://leetcode.com/problems/sqrtx/): easy/Sqrt.java(Easy)
+* 70.[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/): easy/ClimbingStairs.java(Easy)
 
