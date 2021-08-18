@@ -71,4 +71,5 @@
 * 68.[Text Justification](https://leetcode.com/problems/text-justification/): hard/TextJustification.java(Hard)
 * 69.[Sqrt(x)](https://leetcode.com/problems/sqrtx/): easy/Sqrt.java(Easy)
 * 70.[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/): easy/ClimbingStairs.java(Easy)
+* 71.[Simplify Path](https://leetcode.com/problems/simplify-path/): medium/SimplifyPath.java(Medium)
 
