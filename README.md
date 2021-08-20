@@ -74,4 +74,5 @@
 * 71.[Simplify Path](https://leetcode.com/problems/simplify-path/): medium/SimplifyPath.java(Medium)
 * 72.[Edit Distance](https://leetcode.com/problems/edit-distance/): hard/EditDistance.java(Hard)
 * 73.[Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/): medium/SetMatrixZeroes.java(Medium)
+* 74.[Search a 2D Matrix](): medium/SearchA2DMatrix.java(Medium)
 
