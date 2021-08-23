@@ -39,15 +39,15 @@ public class Combinations {
 
   List<List<Integer>> combine1(int n, int k) {
     List<List<Integer>> result = new ArrayList<>();
-    ArrayList<Integer> solution = new ArrayList<>();
+    List<Integer> solution = new ArrayList<>();
     getCombination(n, k, solution, result);
     return result;
   }
 
-  void getCombination(int n, int k, ArrayList<Integer> solution, List<List<Integer>> result) {
+  void getCombination(int n, int k, List<Integer> solution, List<List<Integer>> result) {
     if (k == 0) {
       //sort to meet LeetCode requirement
-      ArrayList<Integer> v = (ArrayList<Integer>) solution.clone();
+      List<Integer> v = new ArrayList<>(solution);
       v.sort(Comparator.naturalOrder());
       result.add(v);
 
