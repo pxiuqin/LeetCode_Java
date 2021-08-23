@@ -79,4 +79,5 @@
 * 76.[Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/): hard/MinimumWindowSubstring.java(Hard)
 * 77.[Combinations](https://leetcode.com/problems/combinations/): medium/Combinations.java(Medium)
 * 78.[Subsets](https://leetcode.com/problems/subsets/): medium/Subsets.java(Medium)
+* 79.[Word Search](https://leetcode.com/problems/word-search/): medium/WordSearch.java(Medium)
 
