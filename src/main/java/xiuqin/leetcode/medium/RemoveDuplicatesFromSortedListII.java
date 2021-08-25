@@ -56,66 +56,9 @@ public class RemoveDuplicatesFromSortedListII {
   public static void main(String args[]) {
     RemoveDuplicatesFromSortedListII obj = new RemoveDuplicatesFromSortedListII();
 
-    ListNode result = obj.deleteDuplicates(createLinkNode2());
-    while (result != null) {
-      System.out.println(result.val);
-      result = result.next;
-    }
-  }
+    ListNode result = obj.deleteDuplicates(ListNode.createList(new int[]{1,2,3,3,4,4,5}));
+    ListNode.printList(result);
 
-  public static ListNode createLinkNode() {
-    //1,2,3,3,4,4,5
-    ListNode a5 = new ListNode();
-    a5.val = 5;
-
-    ListNode a4 = new ListNode();
-    a4.val = 4;
-    a4.next = a5;
-
-    ListNode a4_0 = new ListNode();
-    a4_0.val = 4;
-    a4_0.next = a4;
-
-    ListNode a3 = new ListNode();
-    a3.val = 3;
-    a3.next = a4_0;
-
-    ListNode a3_0 = new ListNode();
-    a3_0.val = 3;
-    a3_0.next = a3;
-
-    ListNode a2 = new ListNode();
-    a2.val = 2;
-    a2.next = a3_0;
-
-    ListNode a1 = new ListNode();
-    a1.val = 1;
-    a1.next = a2;
-
-    return a1;
-  }
-
-  public static ListNode createLinkNode2() {
-    //1,1,1,2,3
-    ListNode a3 = new ListNode();
-    a3.val = 3;
-
-    ListNode a2 = new ListNode();
-    a2.val = 2;
-    a2.next = a3;
-
-    ListNode a1_2 = new ListNode();
-    a1_2.val = 1;
-    a1_2.next = a2;
-
-    ListNode a1_1 = new ListNode();
-    a1_1.val = 1;
-    a1_1.next = a1_2;
-
-    ListNode a1 = new ListNode();
-    a1.val = 1;
-    a1.next = a1_1;
-
-    return a1;
+    ListNode.printList(obj.deleteDuplicates(ListNode.createList(new int[] {1,1,1,2,3})));
   }
 }

@@ -25,95 +25,106 @@ package xiuqin.leetcode.medium;
  * 进阶：你能在不修改链表节点值的情况下解决这个问题吗?（也就是说，仅修改节点本身。）
  */
 public class SwapNodesInPairs {
-    /*just swap the node's value instead of node*/
-    ListNode swapPairs1(ListNode head) {
-        for (ListNode p = head; p != null && p.next != null; p = p.next.next) {
-            int n = p.val;
-            p.val = p.next.val;
-            p.next.val = n;
-        }
-        return head;
+  /*just swap the node's value instead of node*/
+  ListNode swapPairs1(ListNode head) {
+    for (ListNode p = head; p != null && p.next != null; p = p.next.next) {
+      int n = p.val;
+      p.val = p.next.val;
+      p.next.val = n;
+    }
+    return head;
+  }
+
+  /*swap the list nodes physically*/
+  ListNode swapPairs2(ListNode head) {
+    ListNode h = null;
+
+    //using `p` to traverse the linked list
+    for (ListNode p = head; p != null && p.next != null; p = p.next) {
+      //`n` is `p`'s next node, and swap `p` and `n` physcially
+      ListNode n = p.next;
+      p.next = n.next;
+      n.next = p;
+
+      //using `h` as `p`'s previous node
+      if (h != null) {
+        h.next = n;
+      }
+      h = p;
+
+      //determin the really 'head' pointer
+      if (head == p) {
+        head = n;
+      }
     }
 
-    /*swap the list nodes physically*/
-    ListNode swapPairs2(ListNode head) {
-        ListNode h = null;
+    return head;
+  }
 
-        //using `p` to traverse the linked list
-        for (ListNode p = head; p != null && p.next != null; p = p.next) {
-            //`n` is `p`'s next node, and swap `p` and `n` physcially
-            ListNode n = p.next;
-            p.next = n.next;
-            n.next = p;
+  ListNode swapPairs3(ListNode head) {
+    // Three pointers point current, previous and next node.
+    ListNode curr = head, prev = null, next = null;
 
-            //using `h` as `p`'s previous node
-            if (h!=null){
-                h.next = n;
-            }
-            h=p;
+    while (curr != null && curr.next != null) {
+      next = curr.next;
 
-            //determin the really 'head' pointer
-            if (head == p) {
-                head = n;
-            }
-        }
+      //swap nodes
+      curr.next = next.next;
+      if (null == prev) {
+        head = next;
+        prev = next;
+      } else {
+        prev.next = next;
+      }
 
-        return head;
+      next.next = curr;
+
+      //set the pointers to next place.
+      prev = curr;
+      curr = curr.next;
     }
 
-    ListNode swapPairs3(ListNode head) {
-        // Three pointers point current, previous and next node.
-        ListNode curr = head, prev = null, next = null;
+    return head;
+  }
 
-        while (curr != null && curr.next != null) {
-            next = curr.next;
+  public static void main(String[] args) {
+    SwapNodesInPairs obj = new SwapNodesInPairs();
 
-            //swap nodes
-            curr.next = next.next;
-            if (null == prev) {
-                head = next;
-                prev = next;
-            } else {
-                prev.next = next;
-            }
-
-            next.next = curr;
-
-            //set the pointers to next place.
-            prev = curr;
-            curr = curr.next;
-        }
-
-        return head;
-    }
-
-    public static void main(String[] args){
-        SwapNodesInPairs obj =new SwapNodesInPairs();
-
-        ListNode a = new ListNode();
-        a.val = 4;
-
-        ListNode b = new ListNode();
-        b.val = 3;
-        b.next = a;
-
-        ListNode c = new ListNode();
-        c.val = 2;
-        c.next = b;
-
-        ListNode d = new ListNode();
-        d.val = 1;
-        d.next = c;
-
-        ListNode result = obj.swapPairs3(d);
-        while (result != null) {
-            System.out.println(result.val);
-            result = result.next;
-        }
-    }
+    ListNode d= ListNode.createList(new int[]{1,2,3,4});
+    ListNode result = obj.swapPairs3(d);
+    ListNode.printList(result);
+  }
 }
 
 class ListNode {
-    int val;
-    ListNode next;
+  int val;
+  ListNode next;
+
+  public ListNode() {
+  }
+
+  public ListNode(int val) {
+    this.val = val;
+  }
+
+  public static void printList(ListNode h) {
+    while (h != null) {
+      System.out.println(h.val);
+      h = h.next;
+    }
+    System.out.println();
+  }
+
+  public static ListNode createList(int a[]) {
+    int n = a.length;
+    ListNode p = new ListNode();
+    ListNode head = p;
+
+    for (int i = 0; i < n; i++) {
+      p.next = new ListNode(a[i]);
+      p = p.next;
+    }
+
+    return head.next;
+  }
 }
