@@ -84,3 +84,4 @@
 * 81.[Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/): medium/SearchInRotatedSortedArrayII.java(Medium)
 * 82.[Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/): medium/RemoveDuplicatesFromSortedListII.java(Medium)
 * 83.[Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/): easy/RemoveDuplicatesFromSortedList.java(Easy)
+* 84.[Largest Rectangle in Histogram](): hard/LargestRectangleInHistogram.java(Hard)
