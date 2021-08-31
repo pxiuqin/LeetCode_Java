@@ -88,3 +88,4 @@
 * 85.[Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/): hard/MaximalRectangle.java(Hard)
 * 86.[Partition List](https://leetcode.com/problems/partition-list/): medium/PartitionList.java(Medium)
 * 87.[Scramble String](https://leetcode.com/problems/scramble-string/): hard/ScrambleString.java(Hard)
+* 88.[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/): easy/MergeSortedArray.java(Easy)
