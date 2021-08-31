@@ -89,3 +89,4 @@
 * 86.[Partition List](https://leetcode.com/problems/partition-list/): medium/PartitionList.java(Medium)
 * 87.[Scramble String](https://leetcode.com/problems/scramble-string/): hard/ScrambleString.java(Hard)
 * 88.[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/): easy/MergeSortedArray.java(Easy)
+* 89.[Gray Code](https://leetcode.com/problems/gray-code/): medium/GrayCode.java(Medium)
