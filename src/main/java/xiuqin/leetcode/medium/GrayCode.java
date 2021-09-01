@@ -94,12 +94,13 @@ public class GrayCode {
    * Please refer to http://en.wikipedia.org/wiki/Gray_code
    */
   public List<Integer> grayCode02(int n) {
-    List<Integer> ret = new ArrayList<>();
+    List<Integer> result = new ArrayList<>();
     int size = 1 << n;
-    for (int i = 0; i < size; ++i) {
-      ret.add((i >> 1) ^ i);
+    for (int i = 0; i < size; i++) {
+      result.add((i >> 1) ^ i);
     }
-    return ret;
+
+    return result;
   }
 
   //random invoker
