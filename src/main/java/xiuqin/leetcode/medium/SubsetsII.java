@@ -35,23 +35,27 @@ public class SubsetsII {
    * @return
    */
   public List<List<Integer>> subsetsWithDup(int[] nums) {
-    List<List<Integer>> result = new ArrayList<List<Integer>>();
+    List<List<Integer>> result = new ArrayList<>();
     if (nums == null || nums.length == 0) {
       return result;
     }
-    ArrayList<Integer> list = new ArrayList<Integer>();
+
+    ArrayList<Integer> list = new ArrayList<>();
     Arrays.sort(nums);
     addSubset(result, list, nums, 0);
+
     return result;
   }
 
   private void addSubset(List<List<Integer>> result, ArrayList<Integer> list, int[] nums, int pos) {
-    result.add(new ArrayList<Integer>(list));
+    result.add(new ArrayList<>(list));
+
     for (int i = pos; i < nums.length; i++) {
       // in this level, if current loop is not the start element, check if it's duplicated with the previous element
       if (i != pos && nums[i - 1] == nums[i]) {
         continue;
       }
+
       list.add(nums[i]);
       addSubset(result, list, nums, i + 1);
       list.remove(list.size() - 1);
@@ -66,13 +70,15 @@ public class SubsetsII {
    */
   public ArrayList<ArrayList<Integer>> subsetsWithDup(ArrayList<Integer> s) {
     // write your code here
-    ArrayList<ArrayList<Integer>> result = new ArrayList<ArrayList<Integer>>();
+    ArrayList<ArrayList<Integer>> result = new ArrayList<>();
     if (s == null || s.size() == 0) {
       return result;
     }
-    ArrayList<Integer> list = new ArrayList<Integer>();
+
+    ArrayList<Integer> list = new ArrayList<>();
     Collections.sort(s);
     addSubset(s, result, list, 0);
+
     return result;
   }
 
@@ -81,7 +87,7 @@ public class SubsetsII {
     ArrayList<ArrayList<Integer>> result,
     ArrayList<Integer> list,
     int pos) {
-    result.add(new ArrayList<Integer>(list));
+    result.add(new ArrayList<>(list));
     for (int i = pos; i < s.size(); i++) {
       if (i != pos && s.get(i - 1) == s.get(i)) {
         continue;

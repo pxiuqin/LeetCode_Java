@@ -91,4 +91,4 @@
 * 88.[Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/): easy/MergeSortedArray.java(Easy)
 * 89.[Gray Code](https://leetcode.com/problems/gray-code/): medium/GrayCode.java(Medium)
 * 90.[Subsets II](https://leetcode.com/problems/subsets-ii/): medium/SubsetsII.java(Medium)
-* 91.[Decode Ways](): medium/DecodeWays.java(Medium)
+* 91.[Decode Ways](https://leetcode.com/problems/decode-ways/): medium/DecodeWays.java(Medium)
