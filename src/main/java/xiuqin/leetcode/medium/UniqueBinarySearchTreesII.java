@@ -19,6 +19,8 @@ import java.util.List;
  * <p>
  * 提示：
  * 1 <= n <= 8
+ *
+ * 二叉搜索树的性质为：在任一结点r的左（右）子树中，所有结点（若存在）均小于（大于）r。更一般性的特点是：任何一棵二叉树是二叉搜索树，当且仅当其中序遍历序列单调非降。
  */
 public class UniqueBinarySearchTreesII {
 
