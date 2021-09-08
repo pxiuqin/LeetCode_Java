@@ -99,3 +99,4 @@
 * 96.[Unique Binary Search Trees](https://oj.leetcode.com/problems/unique-binary-search-trees/): medium/UniqueBinarySearchTrees.java(Medium)
 * 97.[Interleaving String](https://leetcode.com/problems/interleaving-string/): hard/InterleavingString.java(Hard)
 * 98.[Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/): medium/ValidateBinarySearchTree.java(Medium)
+* 99.[Recover Binary Search Tree](https://oj.leetcode.com/problems/recover-binary-search-tree/): medium/RecoverBinarySearchTree.java(medium)
