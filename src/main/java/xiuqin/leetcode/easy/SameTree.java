@@ -1,5 +1,7 @@
 package xiuqin.leetcode.easy;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -54,14 +56,14 @@ public class SameTree {
   }
 
   private boolean isSameTree2(TreeNode p, TreeNode q) {
-    Queue<TreeNode> q1 = new LinkedBlockingQueue<>();
-    Queue<TreeNode> q2 = new LinkedBlockingQueue<>();
+    List<TreeNode> q1 = new ArrayList<>();
+    List<TreeNode> q2 = new ArrayList<>();
     q1.add(p);
     q2.add(q);
 
     while (q1.size() > 0 && q2.size() > 0) {
-      TreeNode p1 = q1.poll();
-      TreeNode p2 = q2.poll();
+      TreeNode p1 = q1.remove(0);
+      TreeNode p2 = q2.remove(0);
 
       if (p1 == null && p2 == null) {
         continue;
@@ -75,19 +77,11 @@ public class SameTree {
         return false;
       }
 
-      if(p1.left !=null) {
-        q1.add(p1.left);
-      }
-      if(p2.left !=null) {
-        q2.add(p2.left);
-      }
+      q1.add(p1.left);
+      q2.add(p2.left);
 
-      if(p1.right!=null) {
-        q1.add(p1.right);
-      }
-      if(p2.right!=null) {
-        q2.add(p2.right);
-      }
+      q1.add(p1.right);
+      q2.add(p2.right);
     }
 
     return true;
