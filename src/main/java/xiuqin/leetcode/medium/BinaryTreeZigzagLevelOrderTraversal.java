@@ -133,6 +133,32 @@ public class BinaryTreeZigzagLevelOrderTraversal {
     return vv;
   }
 
+  private List<List<Integer>> zigzagLevelOrder3(TreeNode root) {
+    List<List<Integer>> res = new ArrayList<>();
+    helper(root, 0, res);
+    return res;
+  }
+
+  void helper(TreeNode node, int level, List<List<Integer>> res) {
+    if (node == null) {
+      return;
+    }
+
+    if (res.size() <= level) {
+      res.add(new ArrayList<>());
+    }
+
+    List<Integer> oneLevel = res.get(level);
+    if (level % 2 == 0) {
+      oneLevel.add(node.val);
+    } else {
+      oneLevel.add(0, node.val);
+    }
+
+    helper(node.left, level + 1, res);
+    helper(node.right, level + 1, res);
+  }
+
   public static void main(String[] args) {
     BinaryTreeZigzagLevelOrderTraversal obj = new BinaryTreeZigzagLevelOrderTraversal();
 
@@ -144,5 +170,6 @@ public class BinaryTreeZigzagLevelOrderTraversal {
 
     System.out.println(obj.zigzagLevelOrder1(root));
     System.out.println(obj.zigzagLevelOrder2(root));
+    System.out.println(obj.zigzagLevelOrder3(root));
   }
 }
