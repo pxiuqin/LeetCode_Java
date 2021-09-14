@@ -104,3 +104,4 @@
 * 101.[Symmetric Tree](https://leetcode.com/problems/symmetric-tree/): easy/SymmetricTree.java(Easy)
 * 102.[Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/): easy/BinaryTreeLevelOrderTraversal.java(Easy)
 * 103.[Binary Tree Zigzag Level Order Traversal](): medium/BinaryTreeZigzagLevelOrderTraversal.java(Medium)
+* 104.[Maximum Depth of Binary Tree](): easy/MaximumDepthOfBinaryTree.java(Easy)
