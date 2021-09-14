@@ -1,8 +1,6 @@
 package xiuqin.leetcode.medium;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * https://leetcode.com/problems/binary-tree-inorder-traversal/
@@ -104,5 +102,45 @@ class TreeNode {
         printList(h.right);
       }
     }
+  }
+
+
+  public static void printTree_pre_order(TreeNode root) {
+    if (root == null) {
+      System.out.print("# ");
+      return;
+    }
+    System.out.print(String.format("%s ", root.val));
+
+    printTree_pre_order(root.left);
+    printTree_pre_order(root.right);
+  }
+
+  public static void printTree_in_order(TreeNode root) {
+    if (root == null) {
+      System.out.print("# ");
+      return;
+    }
+
+    printTree_in_order(root.left);
+    System.out.print(String.format("%s ", root.val));
+    printTree_in_order(root.right);
+  }
+
+  public static void printTree_level_order(TreeNode root) {
+    Queue<TreeNode> q = new LinkedList<>();
+    q.offer(root);
+    while (q.size() > 0) {
+      TreeNode n = q.poll();
+      if (n == null) {
+        System.out.print("# ");
+        continue;
+      }
+      System.out.print(String.format("%s ", n.val));
+      q.offer(n.left);
+      q.offer(n.right);
+    }
+
+    System.out.println();
   }
 }
