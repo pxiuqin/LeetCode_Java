@@ -7,6 +7,22 @@ import java.util.Queue;
 
 /**
  * https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+ * 107. 从前序与中序遍历序列构造二叉树
+ * 根据一棵树的前序遍历与中序遍历构造二叉树。
+ * <p>
+ * 注意:
+ * 你可以假设树中没有重复的元素。
+ * <p>
+ * 例如，给出
+ * 前序遍历 inorder =[3,9,15,20,7]
+ * 中序遍历 postorder = [9,15,7,20,3]
+ * 返回如下的二叉树：
+ * <p>
+ * 3
+ * / \
+ * 9  20
+ * /  \
+ * 15   7
  */
 public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
   public TreeNode buildTree(List<Integer> preorder, List<Integer> inorder) {
