@@ -5,30 +5,33 @@ import java.util.HashSet;
 
 /**
  * https://leetcode.com/problems/longest-substring-without-repeating-characters/
- * 3.Longest Substring Without Repeating Characters
- * Find the length of the longest substring T of a given string (consists of lowercase
- * letters only) such that every character in T appears no less than k times.
- * <p>
- * Example 1:
- * <p>
- * Input:
- * s = "aaabb", k = 3
- * <p>
- * Output:
- * 3
- * <p>
- * The longest substring is "aaa", as 'a' is repeated 3 times.
- * <p>
- * Example 2:
- * <p>
- * Input:
- * s = "ababbc", k = 2
- * <p>
- * Output:
- * 5
- * <p>
- * The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3
- * times.
+ * 3. 无重复字符的最长子串
+ * 给定一个字符串 s ，请你找出其中不含有重复字符的最长子串的长度。
+ *
+ * 示例1:
+ * 输入: s = "abcabcbb"
+ * 输出: 3
+ * 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
+
+ * 示例 2:
+ * 输入: s = "bbbbb"
+ * 输出: 1
+ * 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
+
+ * 示例 3:
+ * 输入: s = "pwwkew"
+ * 输出: 3
+ * 解释: 因为无重复字符的最长子串是"wke"，所以其长度为 3。
+ *     请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。
+
+ * 示例 4:
+ * 输入: s = ""
+ * 输出: 0
+ *
+ * 提示：
+ * 0 <= s.length <= 5 * 10^4
+ * s由英文字母、数字、符号和空格组成
+ *
  * 介绍一种线性的算法，也是这类题目最常见的方法。
  * 基本思路是维护一个窗口，每次关注窗口中的字符串，在每次判断中，左窗口和右窗口选择其一向前移动。
  * 同样是维护一个HashSet, 正常情况下移动右窗口，如果没有出现重复则继续移动右窗口，
