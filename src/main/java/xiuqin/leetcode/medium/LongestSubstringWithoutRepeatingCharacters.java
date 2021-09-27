@@ -1,5 +1,6 @@
 package xiuqin.leetcode.medium;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -38,44 +39,78 @@ import java.util.HashSet;
  * 空间复杂度为HashSet的size,也是O(n).
  */
 public class LongestSubstringWithoutRepeatingCharacters {
-    public int lengthOfLongestSubstring(String s) {
-        if (s == null || s.length() == 0) {
-            return 0;
-        }
-
-        HashSet<Character> set = new HashSet<Character>();
-        int max = 0;
-        int walker = 0;  //left windows
-        int runner = 0;  //right windows
-
-        while (runner < s.length()) {
-            if (set.contains(s.charAt(runner))) {
-                if (max < runner - walker) {
-                    max = runner - walker;
-                }
-                while (s.charAt(walker) != s.charAt(runner)) {
-                    set.remove(s.charAt(walker));
-                    walker++;
-                }
-
-                walker++;
-            } else {
-                set.add(s.charAt(runner));
-            }
-
-            runner++;
-        }
-
-        max = Math.max(max, runner - walker);
-
-        return max;
+  public int lengthOfLongestSubstring(String s) {
+    if (s == null || s.length() == 0) {
+      return 0;
     }
 
-    public static void main(String[] args) {
-        LongestSubstringWithoutRepeatingCharacters obj=new LongestSubstringWithoutRepeatingCharacters();
+    HashSet<Character> set = new HashSet<Character>();
+    int max = 0;
+    int walker = 0;  //left windows
+    int runner = 0;  //right windows
 
-        System.out.println(obj.lengthOfLongestSubstring("abcabcbb"));
-        System.out.println(obj.lengthOfLongestSubstring("aaabb"));
-        System.out.println(obj.lengthOfLongestSubstring("ababbc"));
+    while (runner < s.length()) {
+      if (set.contains(s.charAt(runner))) {
+        if (max < runner - walker) {
+          max = runner - walker;
+        }
+        while (s.charAt(walker) != s.charAt(runner)) {
+          set.remove(s.charAt(walker));
+          walker++;
+        }
+
+        walker++;
+      } else {
+        set.add(s.charAt(runner));
+      }
+
+      runner++;
     }
+
+    max = Math.max(max, runner - walker);
+
+    return max;
+  }
+
+  public int lengthOfLongestSubstring2(String s) {
+    int[] m = new int[256];
+    Arrays.fill(m, -1);
+    int res = 0, left = -1;
+    for (int i = 0; i < s.length(); ++i) {
+      left = Math.max(left, m[s.charAt(i)]);
+      m[s.charAt(i)] = i;
+      res = Math.max(res, i - left);
+    }
+    return res;
+  }
+
+  public int lengthOfLongestSubstring3(String s) {
+    int res = 0, left = 0, right = 0;
+    HashSet<Character> t = new HashSet<>();
+    while (right < s.length()) {
+      if (!t.contains(s.charAt(right))) {
+        t.add(s.charAt(right++));
+        res = Math.max(res, t.size());
+      } else {
+        t.remove(s.charAt(left++));
+      }
+    }
+    return res;
+  }
+
+  public static void main(String[] args) {
+    LongestSubstringWithoutRepeatingCharacters obj = new LongestSubstringWithoutRepeatingCharacters();
+
+    System.out.println(obj.lengthOfLongestSubstring("abcabcbb"));
+    System.out.println(obj.lengthOfLongestSubstring("aaabb"));
+    System.out.println(obj.lengthOfLongestSubstring("ababbc"));
+
+    System.out.println(obj.lengthOfLongestSubstring2("abcabcbb"));
+    System.out.println(obj.lengthOfLongestSubstring2("aaabb"));
+    System.out.println(obj.lengthOfLongestSubstring2("ababbc"));
+
+    System.out.println(obj.lengthOfLongestSubstring3("abcabcbb"));
+    System.out.println(obj.lengthOfLongestSubstring3("aaabb"));
+    System.out.println(obj.lengthOfLongestSubstring3("ababbc"));
+  }
 }
