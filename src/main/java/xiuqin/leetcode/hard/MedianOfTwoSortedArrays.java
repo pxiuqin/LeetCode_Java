@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * https://oj.leetcode.com/problems/median-of-two-sorted-arrays/
  * 4. 寻找两个正序数组的中位数
- * 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。
+ * 给定两个大小分别为 m 和 n 的正序（从小到大）数组nums1 和nums2。
  * 请你找出并返回这两个正序数组的 中位数 。
  * 分析:
  * 1. 使用归并的方式，合并两个有序数组，得到一个大的有序数组。大的有序数组的中间位置的元素，即为中位数。
@@ -34,7 +34,7 @@ import java.util.List;
  * 示例 5：
  * 输入：nums1 = [2], nums2 = []
  * 输出：2.00000
- *  
+ *
  * <p>
  * 提示：
  * nums1.length == m
@@ -43,7 +43,7 @@ import java.util.List;
  * 0 <= n <= 1000
  * 1 <= m + n <= 2000
  * -106 <= nums1[i], nums2[i] <= 106
- *  
+ *
  * <p>
  * 进阶：你能设计一个时间复杂度为 O(log (m+n)) 的算法解决此问题吗？
  * 思路:可以转化成寻找两个有序数组中的第 k 小的数，其中 k 为 (m+n)/2 或 (m+n)/2+1
@@ -110,7 +110,6 @@ public class MedianOfTwoSortedArrays {
 
       int length1 = nums1.size(), length2 = nums2.size();
       int index1 = 0, index2 = 0;
-      int kthElement = 0;
 
       while (true) {
         // 边界情况
@@ -138,7 +137,6 @@ public class MedianOfTwoSortedArrays {
         }
       }
     }
-
   }
 
   /**

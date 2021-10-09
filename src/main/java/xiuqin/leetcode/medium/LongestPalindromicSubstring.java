@@ -36,8 +36,8 @@ public class LongestPalindromicSubstring {
       right++;
     }
 
-    if (left + 1 <= right - left - 1) {
-      return s.substring(left + 1, right - left - 1);
+    if (left + 1 <= right) {
+      return s.substring(left + 1, right);
     } else {
       return "";
     }
@@ -141,9 +141,7 @@ public class LongestPalindromicSubstring {
         if (i == j || (s.charAt(i) == s.charAt(j) && (j - i < 2 || matrix[i + 1][j - 1]))) {
           matrix[i][j] = true;
           if (longest.length() < j - i + 1) {
-            if (i < j - i + 1) {
-              longest = s.substring(i, j - i + 1);
-            }
+            longest = s.substring(i, j + 1);
           }
         }
       }
@@ -234,7 +232,9 @@ public class LongestPalindromicSubstring {
   public static void main(String[] args) {
     LongestPalindromicSubstring obj = new LongestPalindromicSubstring();
 
-    System.out.println(obj.longestPalindrome("babab"));
+    System.out.println(obj.longestPalindrome_dp_way("babab"));
+    System.out.println(obj.longestPalindrome_dp_way("bbabad"));
+    System.out.println(obj.longestPalindrome_dp_way("cbbd"));
     System.out.println(obj.longestPalindrome("cbbd"));
     System.out.println(obj.longestPalindrome("a"));
     System.out.println(obj.longestPalindrome("ac"));
