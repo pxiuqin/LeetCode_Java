@@ -10,7 +10,7 @@ package xiuqin.leetcode.easy;
  * 输入：x = 121
  * 输出：true
  * <p>
- * 示例 2：
+ * 示例2：
  * 输入：x = -121
  * 输出：false
  * 解释：从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。
@@ -23,10 +23,10 @@ package xiuqin.leetcode.easy;
  * 示例 4：
  * 输入：x = -101
  * 输出：false
- *  
+ *
  * 提示：
- * -2^31 <= x <= 2^31 - 1
- *  
+ * -2^31<= x <= 2^31- 1
+ *
  * 进阶：你能不将整数转为字符串来解决这个问题吗？
  */
 public class PalindromeNumber {
