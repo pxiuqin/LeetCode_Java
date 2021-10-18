@@ -18,7 +18,7 @@ import java.util.LinkedList;
  示例 3：
  输入：head = [1,2], n = 1
  输出：[1]
-  
+
  提示：
  链表中结点的数目为 sz
  1 <= sz <= 30
