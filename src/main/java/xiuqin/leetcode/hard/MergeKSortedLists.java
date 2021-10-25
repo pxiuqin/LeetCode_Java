@@ -28,7 +28,7 @@ import java.util.PriorityQueue;
  * <p>
  * 示例 3：
  * 输入：lists = [[]]
- * 输出：[] 
+ * 输出：[]
  * <p>
  * 提示：
  * k == lists.length
@@ -47,114 +47,114 @@ import java.util.PriorityQueue;
  */
 public class MergeKSortedLists {
 
-    public ListNode mergeKLists(ArrayList<ListNode> lists) {
-        if (lists == null || lists.size() == 0) {
-            return null;
-        }
-        return helper(lists, 0, lists.size() - 1);
+  public ListNode mergeKLists(ArrayList<ListNode> lists) {
+    if (lists == null || lists.size() == 0) {
+      return null;
+    }
+    return helper(lists, 0, lists.size() - 1);
+  }
+
+  private ListNode helper(ArrayList<ListNode> lists, int l, int r) {
+    if (l < r) {
+      int m = (l + r) / 2;
+      return merge(helper(lists, l, m), helper(lists, m + 1, r));
+    }
+    return lists.get(l);
+  }
+
+  private ListNode merge(ListNode l1, ListNode l2) {
+    ListNode dummy = new ListNode();
+    dummy.next = l1;
+    ListNode cur = dummy;
+    while (l1 != null && l2 != null) {
+      if (l1.val < l2.val) {
+        l1 = l1.next;
+      } else {
+        ListNode next = l2.next;
+        cur.next = l2;
+        l2.next = l1;
+        l2 = next;
+      }
+
+      cur = cur.next;
+    }
+    if (l2 != null) {
+      cur.next = l2;
     }
 
-    private ListNode helper(ArrayList<ListNode> lists, int l, int r) {
-        if (l < r) {
-            int m = (l + r) / 2;
-            return merge(helper(lists, l, m), helper(lists, m + 1, r));
-        }
-        return lists.get(l);
+    return dummy.next;
+  }
+
+  /*************************************************************************************************************/
+
+  public ListNode mergeKLists2(ArrayList<ListNode> lists) {
+    PriorityQueue<ListNode> heap = new PriorityQueue<ListNode>(10, new Comparator<ListNode>() {
+      @Override
+      public int compare(ListNode n1, ListNode n2) {
+        return n1.val - n2.val;
+      }
+    });
+    for (int i = 0; i < lists.size(); i++) {
+      ListNode node = lists.get(i);
+      if (node != null) {
+        heap.offer(node);
+      }
+    }
+    ListNode head = null;
+    ListNode pre = head;
+    while (heap.size() > 0) {
+      ListNode cur = heap.poll();
+      if (head == null) {
+        head = cur;
+        pre = head;
+      } else {
+        pre.next = cur;
+      }
+      pre = cur;
+      if (cur.next != null) {
+        heap.offer(cur.next);
+      }
     }
 
-    private ListNode merge(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode();
-        dummy.next = l1;
-        ListNode cur = dummy;
-        while (l1 != null && l2 != null) {
-            if (l1.val < l2.val) {
-                l1 = l1.next;
-            } else {
-                ListNode next = l2.next;
-                cur.next = l2;
-                l2.next = l1;
-                l2 = next;
-            }
+    return head;
+  }
 
-            cur = cur.next;
-        }
-        if (l2 != null) {
-            cur.next = l2;
-        }
+  public static void main(String[] args) {
+    MergeKSortedLists obj = new MergeKSortedLists();
 
-        return dummy.next;
+    ArrayList<ListNode> test = new ArrayList<>();
+    ListNode a = new ListNode();
+    a.val = 6;
+    ListNode b = new ListNode();
+    b.val = 4;
+    b.next = a;
+
+    ListNode a2 = new ListNode();
+    a2.val = 7;
+    ListNode b2 = new ListNode();
+    b2.val = 5;
+    b2.next = a2;
+
+    ListNode a3 = new ListNode();
+    a3.val = 10;
+    ListNode b3 = new ListNode();
+    b3.val = 8;
+    b3.next = a3;
+
+    test.add(b);
+    test.add(b2);
+    test.add(b3);
+
+    ListNode result = obj.mergeKLists2(test);
+    while (result != null) {
+      System.out.println(result.val);
+      result = result.next;
     }
-
-    /*************************************************************************************************************/
-
-    public ListNode mergeKLists2(ArrayList<ListNode> lists) {
-        PriorityQueue<ListNode> heap = new PriorityQueue<ListNode>(10, new Comparator<ListNode>() {
-            @Override
-            public int compare(ListNode n1, ListNode n2) {
-                return n1.val - n2.val;
-            }
-        });
-        for (int i = 0; i < lists.size(); i++) {
-            ListNode node = lists.get(i);
-            if (node != null) {
-                heap.offer(node);
-            }
-        }
-        ListNode head = null;
-        ListNode pre = head;
-        while (heap.size() > 0) {
-            ListNode cur = heap.poll();
-            if (head == null) {
-                head = cur;
-                pre = head;
-            } else {
-                pre.next = cur;
-            }
-            pre = cur;
-            if (cur.next != null) {
-                heap.offer(cur.next);
-            }
-        }
-
-        return head;
-    }
-
-    public static void main(String[] args) {
-        MergeKSortedLists obj = new MergeKSortedLists();
-
-        ArrayList<ListNode> test = new ArrayList<>();
-        ListNode a = new ListNode();
-        a.val = 6;
-        ListNode b = new ListNode();
-        b.val = 4;
-        b.next = a;
-
-        ListNode a2 = new ListNode();
-        a2.val = 7;
-        ListNode b2 = new ListNode();
-        b2.val = 5;
-        b2.next = a2;
-
-        ListNode a3 = new ListNode();
-        a3.val = 10;
-        ListNode b3 = new ListNode();
-        b3.val = 8;
-        b3.next = a3;
-
-        test.add(b);
-        test.add(b2);
-        test.add(b3);
-
-        ListNode result = obj.mergeKLists2(test);
-        while (result != null) {
-            System.out.println(result.val);
-            result = result.next;
-        }
-    }
+  }
 
 }
 
 class ListNode {
-    int val;
-    ListNode next;
+  int val;
+  ListNode next;
 }
