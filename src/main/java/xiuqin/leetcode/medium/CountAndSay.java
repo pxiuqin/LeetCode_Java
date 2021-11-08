@@ -26,7 +26,7 @@ package xiuqin.leetcode.medium;
  * 要将描述转换为数字字符串，先将每组中的字符数量用数字替换，再将所有描述组连接起来。
  * <p>
  * 例如，数字字符串 "3322251" 的描述如下图：
- * (img:/doc/img/countandsay.jpg)
+ * (img:/doc/img/0-100/countandsay.jpg)
  *
  * 示例 1：
  * 输入：n = 1

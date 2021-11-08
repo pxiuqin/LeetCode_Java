@@ -7,21 +7,21 @@ import java.util.Map;
  * https://leetcode.com/problems/first-missing-positive/
  * 41. 缺失的第一个正数
  * 给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。
- *
+ * <p>
  * 请你实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案。
- *
+ * <p>
  * 示例 1：
  * 输入：nums = [1,2,0]
  * 输出：3
- *
+ * <p>
  * 示例 2：
  * 输入：nums = [3,4,-1,1]
  * 输出：2
- *
+ * <p>
  * 示例 3：
  * 输入：nums = [7,8,9,11,12]
  * 输出：1
- *
+ * <p>
  * 提示：
  * 1 <= nums.length <= 5 * 10^5
  * -231 <= nums[i] <= 231 - 1
@@ -89,7 +89,7 @@ public class FirstMissingPositive {
    *
    *    However, we missed 1, so, we have to add dummy number 0 whatever.
    *
-   *    NOTE: this solution is not constant space slution!!!!
+   *    NOTE: this solution is not constant space solution!!!!
    *
    */
   int firstMissingPositive_map(int A[]) {
@@ -118,11 +118,11 @@ public class FirstMissingPositive {
       }
 
       // remove the x+1, x+2, x+3 ...
-      for(num=x+1; cache.containsKey(num);num++){
+      for (num = x + 1; cache.containsKey(num); num++) {
         cache.remove(num);
       }
-      if(num>0&& num<miss){
-        miss=num;
+      if (num > 0 && num < miss) {
+        miss = num;
       }
     }
 
@@ -137,6 +137,10 @@ public class FirstMissingPositive {
     System.out.println(obj.firstMissingPositive_map(test));
 
     test = new int[]{3, 4, -1, 1};
+    System.out.println(obj.firstMissingPositive_move(test));
+    System.out.println(obj.firstMissingPositive_map(test));
+
+    test = new int[]{7, 8, 9, 11, 12};
     System.out.println(obj.firstMissingPositive_move(test));
     System.out.println(obj.firstMissingPositive_map(test));
   }

@@ -37,7 +37,7 @@ package xiuqin.leetcode.hard;
  * ["2","8","7","4","1","9","6","3","5"],
  * ["3","4","5","2","8","6","1","7","9"]]
  * 解释：输入的数独如上图所示，唯一有效的解决方案如下所示：
- * (img:doc/img/sudoku-by-9-solutionsvg.png)
+ * (img:doc/img/0-100/sudoku-by-9-solutionsvg.png)
  */
 public class SudokuSolver {
   int cnt = 9;
