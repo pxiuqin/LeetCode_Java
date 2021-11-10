@@ -19,8 +19,6 @@ package xiuqin.leetcode.medium;
  * num1 和num2 只包含数字0-9。
  * num1 和num2均不以零开头，除非是数字 0 本身。
  * 不能使用任何标准库的大数类型（比如 BigInteger）或直接将输入转换为整数来处理。
- *
- *
  */
 public class MultiplyStrings {
   String multiply(String num1, String num2) {
