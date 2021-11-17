@@ -43,7 +43,7 @@ public class Permutations {
 */
 
   /*
-   *    The algroithm - Take each element in array to the first place.
+   *    The algorithm - Take each element in array to the first place.
    *
    *    For example:
    *

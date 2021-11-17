@@ -3,9 +3,11 @@ package xiuqin.leetcode.medium;
 import java.util.Arrays;
 
 /**
+ * 48. 旋转图像
  * https://leetcode.com/problems/rotate-image/
  * <p>
  * Example 1:
+ * img:doc/img/0-100/mat1.jpg
  * Given input matrix =
  * [
  * [1,2,3],
@@ -21,6 +23,7 @@ import java.util.Arrays;
  * ]
  * <p>
  * Example 2:
+ * img:doc/img/0-100/mat1_2 .jpg
  * Given input matrix =
  * [
  * [ 5, 1, 9,11],
