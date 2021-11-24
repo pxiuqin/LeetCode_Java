@@ -80,14 +80,14 @@ public class NQueens {
       }
     }
 
-    //右对角线(只需要判断对角线上半部分，因为后面的行还没有开始放置)
+    //主对角线(只需要判断对角线上半部分，因为后面的行还没有开始放置)
     for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
       if (cur.get(i).charAt(j) == 'Q') {
         return false;
       }
     }
 
-    //左对角线(只需要判断对角线上半部分，因为后面的行还没有开始放置)
+    //副对角线(只需要判断对角线上半部分，因为后面的行还没有开始放置)
     for (int i = row - 1, j = col + 1; i >= 0 && j < cur.size(); i--, j++) {
       if (cur.get(i).charAt(j) == 'Q') {
         return false;
