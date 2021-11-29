@@ -11,7 +11,7 @@ import java.util.List;
  * 给你一个整数 n ，返回 n 皇后问题 不同的解决方案的数量。
  * <p>
  * 示例 1：
- * img(doc/img/queens2.jpg)
+ * img(doc/img/0-100/queens2.jpg)
  * 输入：n = 4
  * 输出：2
  * 解释：如上图所示，4 皇后问题存在两个不同的解法。
