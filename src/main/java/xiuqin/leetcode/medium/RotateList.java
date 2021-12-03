@@ -5,12 +5,12 @@ package xiuqin.leetcode.medium;
  * 61. 旋转链表
  * 给你一个链表的头节点 head ，旋转链表，将链表每个节点向右移动k个位置。
  * 示例 1：
- * img(doc/img/rotate1.jpg)
+ * img(doc/img/0-100/rotate1.jpg)
  * 输入：head = [1,2,3,4,5], k = 2
  * 输出：[4,5,1,2,3]
  * <p>
  * 示例 2：
- * img(doc/img/rotate1.jpg)
+ * img(doc/img/0-100/rotate2.jpg)
  * 输入：head = [0,1,2], k = 4
  * 输出：[2,0,1]
  * <p>
