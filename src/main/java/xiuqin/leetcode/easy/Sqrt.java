@@ -17,7 +17,7 @@ package xiuqin.leetcode.easy;
  * 说明: 8 的平方根是 2.82842...,
  * 由于返回类型是整数，小数部分将被舍去。
  *
- * 牛顿法逼近解析： img(doc/img/Newton4Sqrt.png)
+ * 牛顿法逼近解析： img(doc/img/0-100/Newton4Sqrt.png)
  */
 public class Sqrt {
   int sqrt(int x) {
