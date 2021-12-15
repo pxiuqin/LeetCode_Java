@@ -13,7 +13,7 @@ package xiuqin.leetcode.medium;
  * 输出：true
  * <p>
  * 示例 2：
- * img(img/doc/mat2.jpg)
+ * img(doc/img/0-100/mat.jpg)
  * 输入：matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13
  * 输出：false
  * <p>
