@@ -44,7 +44,7 @@ public class RemoveNthNodeFromEndOfList {
     }
 
     public static void main(String[] args) {
-        RemoveNthNodeFromEndOfList obj = new RemoveNthNodeFromEndOfList();
+        // RemoveNthNodeFromEndOfList obj = new RemoveNthNodeFromEndOfList();
 
         LinkedList<Integer> test= new LinkedList<>();
         test.add(1);

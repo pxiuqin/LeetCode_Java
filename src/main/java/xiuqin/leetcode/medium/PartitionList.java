@@ -1,6 +1,5 @@
 package xiuqin.leetcode.medium;
 
-import java.util.List;
 
 /**
  * https://leetcode.com/problems/partition-list/

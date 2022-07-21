@@ -1,7 +1,5 @@
 package xiuqin.leetcode.medium;
 
-import xiuqin.leetcode.easy.ClimbingStairs;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;

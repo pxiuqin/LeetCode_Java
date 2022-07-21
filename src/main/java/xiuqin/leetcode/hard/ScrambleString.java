@@ -1,7 +1,6 @@
 package xiuqin.leetcode.hard;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * https://leetcode.com/problems/scramble-string/
