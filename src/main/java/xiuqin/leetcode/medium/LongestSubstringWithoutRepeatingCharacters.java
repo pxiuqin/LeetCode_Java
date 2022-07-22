@@ -12,18 +12,18 @@ import java.util.HashSet;
  * 输入: s = "abcabcbb"
  * 输出: 3
  * 解释: 因为无重复字符的最长子串是 "abc"，所以其长度为 3。
-
+ * 
  * 示例 2:
  * 输入: s = "bbbbb"
  * 输出: 1
  * 解释: 因为无重复字符的最长子串是 "b"，所以其长度为 1。
-
+ * 
  * 示例 3:
  * 输入: s = "pwwkew"
  * 输出: 3
  * 解释: 因为无重复字符的最长子串是"wke"，所以其长度为 3。
- *     请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。
-
+ * 请注意，你的答案必须是 子串 的长度，"pwke"是一个子序列，不是子串。
+ * 
  * 示例 4:
  * 输入: s = ""
  * 输出: 0
@@ -49,8 +49,8 @@ public class LongestSubstringWithoutRepeatingCharacters {
 
     HashSet<Character> set = new HashSet<Character>();
     int max = 0;
-    int walker = 0;  //left windows
-    int runner = 0;  //right windows
+    int walker = 0; // left windows
+    int runner = 0; // right windows
 
     while (runner < s.length()) {
       if (set.contains(s.charAt(runner))) {
@@ -101,6 +101,26 @@ public class LongestSubstringWithoutRepeatingCharacters {
     return res;
   }
 
+  public int lengthOfLongestSubstring4(String s) {
+    // 记录字符上一次出现的位置
+    int[] last = new int[128];
+    for (int i = 0; i < 128; i++) {
+      last[i] = -1;
+    }
+    int n = s.length();
+
+    int res = 0;
+    int start = 0; // 窗口开始位置
+    for (int i = 0; i < n; i++) {
+      int index = s.charAt(i);
+      start = Math.max(start, last[index] + 1);
+      res = Math.max(res, i - start + 1);
+      last[index] = i;
+    }
+
+    return res;
+  }
+
   public static void main(String[] args) {
     LongestSubstringWithoutRepeatingCharacters obj = new LongestSubstringWithoutRepeatingCharacters();
 
@@ -115,5 +135,9 @@ public class LongestSubstringWithoutRepeatingCharacters {
     System.out.println(obj.lengthOfLongestSubstring3("abcabcbb"));
     System.out.println(obj.lengthOfLongestSubstring3("aaabb"));
     System.out.println(obj.lengthOfLongestSubstring3("ababbc"));
+
+    System.out.println(obj.lengthOfLongestSubstring4("abcabcbb"));
+    System.out.println(obj.lengthOfLongestSubstring4("aaabb"));
+    System.out.println(obj.lengthOfLongestSubstring4("ababbc"));
   }
 }

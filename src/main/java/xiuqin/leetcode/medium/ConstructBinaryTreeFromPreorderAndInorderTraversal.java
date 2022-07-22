@@ -36,9 +36,9 @@ import java.util.List;
  * <p>
  * 3
  * / \
- * 9  20
- * /  \
- * 15   7
+ * 9 20
+ * / \
+ * 15 7
  */
 public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
   public TreeNode buildTree(List<Integer> preorder, List<Integer> inorder) {
@@ -61,20 +61,20 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
       return null;
     }
 
-    TreeNode root = new TreeNode(preorder.get(preidx));  //get root node
+    TreeNode root = new TreeNode(preorder.get(preidx)); // get root node
     if (inorder.size() == 1) {
       return root;
     }
 
     int i;
     for (i = 0; i < inorder.size(); i++) {
-      //find the number of nodes in the left subtree
+      // find the number of nodes in the left subtree
       if (inorder.get(i) == preorder.get(preidx)) {
         break;
       }
     }
 
-    //error: not found
+    // error: not found
     if (i == inorder.size()) {
       return null;
     }
@@ -85,13 +85,13 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
 
     List<Integer> v = inorder.subList(0, i);
     if (v.size() > 0) {
-      preidx++;  //add one
+      preidx++; // add one
       root.left = buildTree(preorder, preidx, v);
     }
 
     v = inorder.subList(i + 1, inorder.size());
     if (v.size() > 0) {
-      preidx += i;  //add the number of left nodes
+      preidx += i; // add the number of left nodes
 
       root.right = buildTree(preorder, preidx, v);
     }
@@ -99,10 +99,45 @@ public class ConstructBinaryTreeFromPreorderAndInorderTraversal {
     return root;
   }
 
+  TreeNode build(Integer[] preorder, int preStart, int preEnd, Integer[] inorder, int inStart, int inEnd) {
+    // 前序位置，寻找左右子树的索引
+    if (preStart > preEnd) {
+      return null;
+    }
+    int rootVal = preorder[preStart];
+    int index = 0;
+    for (int i = inStart; i <= inEnd; i++) {
+      if (inorder[i] == rootVal) {
+        index = i;
+        break;
+      }
+    }
+    int leftSize = index - inStart;
+    TreeNode root = new TreeNode(rootVal);
+
+    // 递归构造左右子树
+    root.left = build(preorder, preStart + 1, preStart + leftSize,
+        inorder, inStart, index - 1);
+    root.right = build(preorder, preStart + leftSize + 1, preEnd,
+        inorder, index + 1, inEnd);
+
+    return root;
+  }
+
   public static void main(String[] args) {
     ConstructBinaryTreeFromPreorderAndInorderTraversal obj = new ConstructBinaryTreeFromPreorderAndInorderTraversal();
 
-    TreeNode result = obj.buildTree(Arrays.asList(6, 2, 1, 4, 3, 5, 8, 7, 9), Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+    Integer[] preOrder={6, 2, 1, 4, 3, 5, 8, 7, 9};
+    Integer[] inOrder= {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    TreeNode result = obj.buildTree(Arrays.asList(preOrder), Arrays.asList(inOrder));
+    TreeNode.printTree_pre_order(result);
+    System.out.println();
+    TreeNode.printTree_in_order(result);
+    System.out.println();
+    TreeNode.printTree_level_order(result);
+    System.out.println();
+
+    result = obj.build(preOrder, 0,8,inOrder,0,8);
     TreeNode.printTree_pre_order(result);
     System.out.println();
     TreeNode.printTree_in_order(result);
