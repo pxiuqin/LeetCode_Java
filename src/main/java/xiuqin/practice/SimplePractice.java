@@ -53,7 +53,7 @@ public class SimplePractice {
                 continue;
             }
 
-            // 
+            // 找到最优解决方案
             count = Math.min(count, subCount+1);
         }
 
