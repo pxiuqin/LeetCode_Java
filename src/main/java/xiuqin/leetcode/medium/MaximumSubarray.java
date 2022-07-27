@@ -8,7 +8,8 @@ package xiuqin.leetcode.medium;
  * 输出：6
  * 解释：连续子数组 [4,-1,2,1] 的和最大，为 6
  *
- * Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+ * Given an integer array nums, find the contiguous subarray (containing at
+ * least one number) which has the largest sum and return its sum.
  * Example 1:
  * Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
  * Output: 6
@@ -24,7 +25,7 @@ public class MaximumSubarray {
     int index = 0;
 
     for (int num : nums) {
-      //not start negate number
+      // not start negate number
       if (index < 0) {
         index = 0;
       }
@@ -36,10 +37,22 @@ public class MaximumSubarray {
     return max;
   }
 
+  public int maxSubArray2(int[] nums) {
+    int pre = 0;
+    int max = nums[0];
+
+    for (int num : nums) {
+      pre = Math.max(num, pre + num);
+      max = Math.max(num, pre);
+    }
+
+    return max;
+  }
+
   public static void main(String[] args) {
     MaximumSubarray obj = new MaximumSubarray();
 
-    int[] nums = new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4};
+    int[] nums = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
     System.out.println(obj.maxSubArray(nums));
   }
 }

@@ -50,7 +50,7 @@ public class SudokuSolver {
     col_mask = new boolean[cnt][cnt];
     area_mask = new boolean[cnt][cnt];
 
-    //check each rows and cols
+    // check each rows and cols
     for (int r = 0; r < board.length; r++) {
       for (int c = 0; c < board[r].length; c++) {
         if (!Character.isDigit(board[r][c])) {
@@ -59,7 +59,7 @@ public class SudokuSolver {
 
         int idx = board[r][c] - '0' - 1;
 
-        //check the rows/cols/areas
+        // check the rows/cols/areas
         int area = (r / 3) * 3 + (c / 3);
         if (row_mask[r][idx] || col_mask[c][idx] || area_mask[area][idx]) {
           return false;
@@ -74,35 +74,35 @@ public class SudokuSolver {
 
   boolean recursiveSudoKu(char[][] board, int row, int col) {
     if (row >= this.cnt) {
-      return true;   //recursive all rows
+      return true; // recursive all rows
     }
 
     if (col >= this.cnt) {
-      return recursiveSudoKu(board, row + 1, 0);  //recursive next row when column equal 9
+      return recursiveSudoKu(board, row + 1, 0); // recursive next row when column equal 9
     }
 
     if (board[row][col] != '.') {
-      return recursiveSudoKu(board, row, col + 1); //recursive next column
+      return recursiveSudoKu(board, row, col + 1); // recursive next column
     }
 
-    //pick a number for empty cell
+    // pick a number for empty cell
     int area;
     for (int i = 0; i < this.cnt; i++) {
-      area=(row/3)*3+(col/3);
-      if(row_mask[row][i]||col_mask[col][i]||area_mask[area][i]){
+      area = (row / 3) * 3 + (col / 3);
+      if (row_mask[row][i] || col_mask[col][i] || area_mask[area][i]) {
         continue;
       }
 
-      //set the number and solve it recursively
-      board[row][col]=(char) (i+'1');
-      row_mask[row][i]=col_mask[col][i]=area_mask[area][i]=true;
+      // set the number and solve it recursively
+      board[row][col] = (char) (i + '1');
+      row_mask[row][i] = col_mask[col][i] = area_mask[area][i] = true;
 
-      if(recursiveSudoKu(board,row,col+1)==true){
-        return true;  //recursive each columns
+      if (recursiveSudoKu(board, row, col + 1) == true) {
+        return true; // recursive each columns
       } else {
-        //backtrace
-        board[row][col]='.';  //把后边儿的“.“改成数字后，发现做不下去了，得回溯，把这个数字改回.
-        row_mask[row][i]=col_mask[col][i]=area_mask[area][i]=false;
+        // backtrace
+        board[row][col] = '.'; // 把后边儿的“.“改成数字后，发现做不下去了，得回溯，把这个数字改回.
+        row_mask[row][i] = col_mask[col][i] = area_mask[area][i] = false;
       }
     }
 
@@ -117,32 +117,66 @@ public class SudokuSolver {
     return recursiveSudoKu(board, 0, 0);
   }
 
+  boolean isValidSudoKu(char[][] table) {
+
+    int[][] col = new int[9][10];
+    int[][][] board = new int[3][3][10];
+
+    for (int i = 0; i < 9; i++) {
+      int[] row = new int[10];
+      for (int j = 0; j < 9; j++) {
+        char v = table[i][j];
+        if (v == '.') {
+          continue;
+        } else {
+          int index = Integer.parseInt(String.valueOf(v));
+          int board_r = i / 3;
+          int board_c = j / 3;
+
+          if (row[index] > 1 || col[i][index] > 1 || board[board_r][board_c][index] > 1) {
+            return false;
+          } else {
+            row[index] += 1;
+            col[i][index] += 1;
+            board[board_r][board_c][index] += 1;
+          }
+        }
+      }
+    }
+
+    return true;
+  }
+
   public static void main(String[] args) {
     SudokuSolver obj = new SudokuSolver();
 
-    char[][] test = new char[][]{
-      {'8', '3', '.', '.', '7', '.', '.', '.', '.'},
-      {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
-      {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
-      {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
-      {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
-      {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
-      {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
-      {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-      {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+    char[][] test = new char[][] {
+        { '8', '3', '.', '.', '7', '.', '.', '.', '.' },
+        { '6', '.', '.', '1', '9', '5', '.', '.', '.' },
+        { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
+        { '8', '.', '.', '.', '6', '.', '.', '.', '3' },
+        { '4', '.', '.', '8', '.', '3', '.', '.', '1' },
+        { '7', '.', '.', '.', '2', '.', '.', '.', '6' },
+        { '.', '6', '.', '.', '.', '.', '2', '8', '.' },
+        { '.', '.', '.', '4', '1', '9', '.', '.', '5' },
+        { '.', '.', '.', '.', '8', '.', '.', '7', '9' }
     };
+    System.out.println(String.format("is valid:%s",obj.isValidSudoKu(test)));
+
     System.out.println(obj.solveSudoku(test));
 
-    test = new char[][]{
-      {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
-      {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
-      {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
-      {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
-      {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
-      {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
-      {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
-      {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
-      {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+    System.out.println(String.format("is valid:%s",obj.isValidSudoKu(test)));
+
+    test = new char[][] {
+        { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
+        { '6', '.', '.', '1', '9', '5', '.', '.', '.' },
+        { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
+        { '8', '.', '.', '.', '6', '.', '.', '.', '3' },
+        { '4', '.', '.', '8', '.', '3', '.', '.', '1' },
+        { '7', '.', '.', '.', '2', '.', '.', '.', '6' },
+        { '.', '6', '.', '.', '.', '.', '2', '8', '.' },
+        { '.', '.', '.', '4', '1', '9', '.', '.', '5' },
+        { '.', '.', '.', '.', '8', '.', '.', '7', '9' }
     };
     System.out.println(obj.solveSudoku(test));
   }

@@ -15,9 +15,9 @@ package xiuqin.leetcode.easy;
  * <p>
  * 3
  * / \
- * 9  20
- * /  \
- * 15   7
+ * 9 20
+ * / \
+ * 15 7
  * 返回它的最大深度3 。
  */
 public class MaximumDepthOfBinaryTree {
@@ -41,6 +41,16 @@ public class MaximumDepthOfBinaryTree {
     }
 
     return Math.max(leftDepth, rightDepth);
+  }
+
+  public int maxDepth2(TreeNode root) {
+    if (root==null){
+      return 0;
+    }
+    
+    int left = maxDepth2(root.left);
+    int right = maxDepth2(root.right);
+    return Math.max(left, right) + 1;
   }
 
   public static void main(String[] args) {
