@@ -43,7 +43,7 @@ public class MaximumSubarray {
 
     for (int num : nums) {
       pre = Math.max(num, pre + num);
-      max = Math.max(num, pre);
+      max = Math.max(max, pre);
     }
 
     return max;
@@ -54,5 +54,10 @@ public class MaximumSubarray {
 
     int[] nums = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
     System.out.println(obj.maxSubArray(nums));
+    System.out.println(obj.maxSubArray2(nums));
+
+    nums = new int[] { -2, -1, -3, -4, -1, -2, -1, -5, -4 };
+    System.out.println(obj.maxSubArray(nums));
+    System.out.println(obj.maxSubArray2(nums));
   }
 }
